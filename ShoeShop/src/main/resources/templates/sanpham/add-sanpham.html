@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<h2>Add Product</h2>
+<form th:action="@{/sanpham/add}" method="post" enctype="multipart/form-data" th:object="${sanPham}">
+  <label for="tensanpham">Name:</label>
+  <input type="text" id="tensanpham" th:field="*{tensanpham}"><br><br>
+  <label for="mota">Description:</label>
+  <input type="text" id="mota" th:field="*{mota}"><br><br>
+  <label for="hinh1">Image 1:</label>
+  <input type="file" id="hinh1" name="hinh1"><br><br>
+  <label for="hinh2">Image 2:</label>
+  <input type="file" id="hinh2" name="hinh2"><br><br>
+  <label for="hinh3">Image 3:</label>
+  <input type="file" id="hinh3" name="hinh3"><br><br>
+  <label for="hinh4">Image 4:</label>
+  <input type="file" id="hinh4" name="hinh4"><br><br>
+  <label for="price">Price:</label>
+  <input type="number" id="price" th:field="*{price}"><br><br>
+  <label for="soluong">Quantity:</label>
+  <input type="number" id="soluong" th:field="*{soluong}"><br><br>
+  <!-- Dropdown for selecting danh muc -->
+  <label for="danhmuc">Category:</label>
+  <select id="danhmuc" th:field="*{danhmuc.id}">
+    <option th:each="danhMuc : ${danhMucList}" th:value="${danhMuc.id}" th:text="${danhMuc.ten}"></option>
+  </select><br><br>
+  <!-- Dropdown for selecting NSX -->
+  <label for="nsx">Manufacturer:</label>
+  <select id="nsx" th:field="*{nsx.id}">
+    <option th:each="nsx : ${nsxList}" th:value="${nsx.id}" th:text="${nsx.ten}"></option>
+  </select><br><br>
+  <button type="submit">Add</button>
+</form>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

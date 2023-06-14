@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add NSX</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<h2>Add NSX</h2>
+<form th:action="@{/nsx/save}" method="post" th:object="${nsx}">
+  <label for="tennsx">Ten NSX:</label>
+  <input type="text" id="tennsx" th:field="*{tenNSX}"><br><br>
+  <label for="mota">Mo ta:</label>
+  <input type="text" id="mota" th:field="*{mota}"><br><br>
+  <button type="submit">Add</button>
+</form>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

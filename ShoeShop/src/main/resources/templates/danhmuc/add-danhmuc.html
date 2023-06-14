@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Danh Muc</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<h2>Add Danh Muc</h2>
+<form th:action="@{/danhmuc/save}" method="post" th:object="${danhmuc}">
+  <label for="tendanhmuc">Ten danh muc:</label>
+  <input type="text" id="tendanhmuc" th:field="*{tendanhmuc}"><br><br>
+  <label for="mota">Mo ta:</label>
+  <input type="text" id="mota" th:field="*{mota}"><br><br>
+  <button type="submit">Add</button>
+</form>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>
